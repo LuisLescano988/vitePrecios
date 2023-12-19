@@ -105,7 +105,7 @@ const UpdateProduct = () => {
                     </div>
                 )}
             </div>:
-            <div>LA CONCHA DE LARGO</div>
+            <div>Manuelita vivia en Pehuajo, pero un dia se marcho</div>
     }
         </div>
         )
