@@ -3,25 +3,25 @@ import {
   POST_PRODUCT,
 //   POST_NEW_USER,
   GET_ALL_PRODUCTS,
-//   GET_BOOK_DETAIL
+  UPDATE_PRODUCT
 } from './actionTypes';
 import mockData from '../assets/MOCK_DATA.json'
 
 
-export function postNewProduct(payload) {
+export function postNewProduct(data) {
   return async function (dispatch) {
     try {
       const newProduct = {
         id: mockData.length + 1,
-        ...payload
+        ...data
       };
       const updatedData = [...mockData, newProduct];
-
+      
       dispatch({
         type: POST_PRODUCT,
         payload: updatedData
       });
-
+      
       return newProduct
     } catch (error) {
       console.error(error);
@@ -44,24 +44,24 @@ export function getAllProducts() {
   }
 };
 
-// export function getDetail(id) {
-//   return async function (dispatch) {
-//     console.log(id, 'id');
-//     try {
-//       const bookDetail = mockData.find((book) => book.id == id);
-//       if (bookDetail) {
-//         return dispatch({
-//           type: GET_BOOK_DETAIL,
-//           payload: bookDetail,
-//         });
-//       } else {
-//         console.error(`No se encontró un libro con el ID: ${id}`);
-//       }
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-// };
+export function updateProduct(id) {
+  return async function (dispatch) {
+    console.log(id, 'id');
+    try {
+      const productDetail = mockData.find((product) => product.id == id);
+      if (productDetail) {
+        return dispatch({
+          type: UPDATE_PRODUCT,
+          payload: productDetail,
+        });
+      } else {
+        console.error(`No se encontró un libro con el ID: ${id}`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
 
 // export function newUser(payload) {
 //   return function (dispatch) {

@@ -1,7 +1,9 @@
 import{
     // GET_ALL_BOOKS,
     // GET_BOOK_DETAIL,
-    POST_PRODUCT
+    GET_ALL_PRODUCTS,
+    POST_PRODUCT,
+    UPDATE_PRODUCT
 } from './actionTypes';
 
 const initialState = {
@@ -11,16 +13,16 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
     switch (type) {
-        case GET_ALL_BPRODUCTS:
+        case GET_ALL_PRODUCTS:
             return {
                 ...state,
                 products: payload
             }
-        // case GET_BOOK_DETAIL:
-        //     return{
-        //         ...state,
-        //         detail: payload
-        //     }
+        case UPDATE_PRODUCT:
+            return{
+                ...state,
+                detail: payload
+            }
             case POST_PRODUCT:
                 return{
                     ...state,
