@@ -1,0 +1,5 @@
+export const POST_PRODUCT  = 'POST_PRODUCT'
+export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
+// export const EDIT_BOOK = 'EDIT_BOOK'
+// export const POST_NEW_USER = 'POST_NEW_USER'
