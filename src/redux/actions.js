@@ -46,7 +46,6 @@ export function getAllProducts() {
 
 export function updateProduct(id) {
   return async function (dispatch) {
-    console.log(id, 'id');
     try {
       const productDetail = mockData.find((product) => product.id == id);
       if (productDetail) {
