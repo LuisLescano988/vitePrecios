@@ -61,7 +61,7 @@ const UpdateProduct = () => {
     const handleConfirmedUpdate = async (product) => {
         try {
             await dispatch(updateProduct(selectedProduct));
-            console.log(newData, 'AQUI PUTO');
+            console.log(newData, 'AQUI');
             setConfirmation(true);
         } catch (error) {
             console.error('Error al actualizar el producto', error);
