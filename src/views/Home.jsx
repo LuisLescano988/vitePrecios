@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import SearchComponent from './SearchComponent'
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
+import DeleteProduct from './DeleteProduct';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('buscar');
@@ -14,6 +15,8 @@ const Home = () => {
         return <AddProduct />;
       case 'actualizar':
         return <UpdateProduct />;
+      case 'borrar':
+        return <DeleteProduct />;
       default:
         return null;
     }

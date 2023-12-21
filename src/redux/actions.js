@@ -3,7 +3,8 @@ import {
   POST_PRODUCT,
 //   POST_NEW_USER,
   GET_ALL_PRODUCTS,
-  UPDATE_PRODUCT
+  UPDATE_PRODUCT,
+  DELETE_PRODUCT
 } from './actionTypes';
 import mockData from '../assets/MOCK_DATA.json'
 
@@ -44,7 +45,7 @@ export function getAllProducts() {
   }
 };
 
-export function updateProduct(id) {
+export function updateProduct(id, body) {
   return async function (dispatch) {
     console.log(id, 'id');
     try {
@@ -63,6 +64,26 @@ export function updateProduct(id) {
   };
 };
 
+
+export function deleteProduct(id) {
+  return async function (dispatch) {
+    try {
+      console.log(id, 'id');
+      const productDetail = mockData.find((product) => product.id == id);
+      if (productDetail) {
+        return dispatch({
+          type: DELETE_PRODUCT,
+          payload: productDetail,
+        });
+      } else {
+        console.error(`No se encontró un libro con el ID: ${id}`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+  
 // export function newUser(payload) {
 //   return function (dispatch) {
 //     try {

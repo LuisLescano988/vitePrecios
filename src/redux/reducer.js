@@ -1,4 +1,4 @@
-import{
+import {
     // GET_ALL_BOOKS,
     // GET_BOOK_DETAIL,
     GET_ALL_PRODUCTS,
@@ -19,15 +19,15 @@ export default function reducer(state = initialState, { type, payload }) {
                 products: payload
             }
         case UPDATE_PRODUCT:
-            return{
+            return {
                 ...state,
                 detail: payload
             }
-            case POST_PRODUCT:
-                return{
-                    ...state,
-                    products: payload
-                }
-            default: return state
-        }
+        case POST_PRODUCT:
+            return {
+                ...state,
+                products: payload
+            }
+        default: return state
     }
+}
