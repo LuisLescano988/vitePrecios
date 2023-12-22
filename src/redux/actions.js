@@ -1,13 +1,14 @@
 import axios from "axios";
 import {
   POST_PRODUCT,
-//   POST_NEW_USER,
+  //   POST_NEW_USER,
   GET_ALL_PRODUCTS,
   UPDATE_PRODUCT,
   DELETE_PRODUCT
 } from './actionTypes';
 import mockData from '../assets/MOCK_DATA.json'
 
+const URL = 'http://localhost:8000/api/all_products/'
 
 export function postNewProduct(data) {
   return async function (dispatch) {
@@ -17,12 +18,12 @@ export function postNewProduct(data) {
         ...data
       };
       const updatedData = [...mockData, newProduct];
-      
+
       dispatch({
         type: POST_PRODUCT,
         payload: updatedData
       });
-      
+
       return newProduct
     } catch (error) {
       console.error(error);
@@ -33,14 +34,13 @@ export function postNewProduct(data) {
 export function getAllProducts() {
   return async function (dispatch) {
     try {
-      const data = mockData
-      // var response = await axios.get (URL)
+      var response = await axios.get(URL)
       return dispatch({
         type: GET_ALL_PRODUCTS,
-        payload: data
-      })
+        payload: response.data
+      });
     } catch (error) {
-      console.error(error);
+      console.log(error)
     }
   }
 };
@@ -82,7 +82,7 @@ export function deleteProduct(id) {
     }
   };
 };
-  
+
 // export function newUser(payload) {
 //   return function (dispatch) {
 //     try {
