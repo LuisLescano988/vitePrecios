@@ -18,7 +18,7 @@ export function postNewProduct(payload) {
                     type: POST_PRODUCT,
                     payload: data
                 });
-            })
+            });
         } catch (error){
             console.error(error);
         }
