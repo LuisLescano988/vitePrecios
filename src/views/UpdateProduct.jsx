@@ -14,6 +14,7 @@ const UpdateProduct = () => {
     const [newData, setNewData] = useState({
         product_name: '',
         supplier_code: '',
+        supplier_name: '',
         messure_unit: '',
         quantity: '',
         purchase_price: '',
@@ -44,6 +45,7 @@ const UpdateProduct = () => {
         setNewData({
             product_name: product.product_name,
             supplier_code: product.supplier_code,
+            supplier_name: product.supplier_name,
             messure_unit: product.messure_unit,
             quantity: product.quantity,
             purchase_price: product.purchase_price,
@@ -60,8 +62,6 @@ const UpdateProduct = () => {
 
     const handleConfirmedUpdate = async (product) => {
         try {
-            await dispatch(updateProduct(selectedProduct));
-            console.log(newData, 'AQUI');
             setConfirmation(true);
         } catch (error) {
             console.error('Error al actualizar el producto', error);
@@ -109,11 +109,11 @@ const UpdateProduct = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(updateProduct(newData));
-        console.log(newData, 'MAKA');
+        dispatch(updateProduct(selectedProduct.id, newData));
         setNewData({
             product_name: '',
             supplier_code: '',
+            supplier_name: '',
             messure_unit: '',
             quantity: '',
             purchase_price: '',
@@ -197,6 +197,18 @@ const UpdateProduct = () => {
                                     value={newData.supplier_code}
                                     onChange={handleInputChange}
                                     placeholder={newData.supplier_code}
+                                    className="border border-gray-400 p-2 w-full text-black placeholder:italic"
+                                />
+                            </label>
+                            <br />
+                            <label className='block mb-2'>
+                                Nombre del Proveedor:
+                                <input
+                                    type="text"
+                                    name="supplier_name"
+                                    value={newData.supplier_name}
+                                    onChange={handleInputChange}
+                                    placeholder={newData.supplier_name}
                                     className="border border-gray-400 p-2 w-full text-black placeholder:italic"
                                 />
                             </label>

@@ -35,6 +35,7 @@ const SearchComponent = () => {
     );
 
     const [search, setSearch] = useState('');
+
     const getFilteredProducts = (search, allProducts) => {
         if (!search) {
             return allProducts
@@ -51,12 +52,11 @@ const SearchComponent = () => {
         indexOfLastProduct
     );
 
-
+    // useEffect(() => {
+    // }, [allProducts]);
+    
     useEffect(() => {
         setCurrentPage(1);
-    }, [allProducts]);
-
-    useEffect(() => {
         dispatch(getAllProducts());
     }, []);
 
@@ -72,8 +72,9 @@ const SearchComponent = () => {
                 <table className=" text-left mt-8 w-full">
                     <thead className="">
                         <tr>
-                            <th colSpan="1">Nombre</th>
+                            <th colSpan="2">Nombre</th>
                             <th colSpan="1">Codigo</th>
+                            <th colSpan="1">Proveedor</th>
                             <th colSpan="1">Precio de compra</th>
                             <th colSpan="1">Precio de venta</th>
                             <th colSpan="1">Margen de venta</th>
@@ -83,12 +84,13 @@ const SearchComponent = () => {
                     <tbody className="">
                         {currentProducts.map((product) => (
                             <tr className=" text-sm  border-b-2 hover:bg-green-800" key={product.id}>
-                                <td className="font-bold ">{product.product_name}</td>
+                                <td colSpan="2" className="font-bold ">{product.product_name}</td>
                                 <td className="">{product.supplier_code}</td>
-                                <td className="">{product.purchase_price}</td>
-                                <td className="">{product.sales_price}</td>
-                                <td className="">{product.percent}%</td>
-                                <td className="">{product.messure_unit}</td>
+                                <td className="">{product.supplier_name}</td>
+                                <td className=" text-center">${product.purchase_price}</td>
+                                <td className=" text-center">${product.sales_price}</td>
+                                <td className="text-center">{product.percent}%</td>
+                                <td className="text-right">{product.messure_unit}</td>
                             </tr>
                         ))}
                     </tbody>

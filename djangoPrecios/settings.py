@@ -44,6 +44,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# CORS_ALLOW_CREDENTIALS = True
+
+# CORS_ALLOW_ALL_ORIGINS = True
+
 ROOT_URLCONF = 'djangoPrecios.urls'
 
 TEMPLATES = [
@@ -118,9 +122,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Este es el puerto predeterminado de Vite
+    "http://localhost:6969",  # Este es el puerto predeterminado de Vite
 ]
 
-FRONTEND_URL = "http://localhost:5173"
+FRONTEND_URL = "http://localhost:6969"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", FRONTEND_URL.lstrip("http://").rstrip("/")]

@@ -9,6 +9,7 @@ const AddProduct = () => {
     const [productData, setProductData] = useState({
         product_name: '',
         supplier_code: '',
+        supplier_name: '',
         messure_unit: '',
         quantity: '',
         purchase_price: '',
@@ -62,6 +63,7 @@ const AddProduct = () => {
         setProductData({
             product_name: '',
             supplier_code: '',
+            supplier_name: '',
             messure_unit: '',
             quantity: '',
             purchase_price: '',
@@ -77,7 +79,6 @@ const AddProduct = () => {
                 <h1 className=' text-3xl font-bold mb-4'>AGREGAR PRODUCTO</h1>
                 <form className=' grid grid-cols-2 gap-4' onSubmit={handleSubmit}>
                     <div>
-
                         <label className='block mb-2'>
                             Nombre de Producto:
                             <input
@@ -103,6 +104,18 @@ const AddProduct = () => {
                         </label>
                         <br />
                         <label className='block mb-2'>
+                            Nombre del Proveedor:
+                            <input
+                                type="text"
+                                name="supplier_name"
+                                value={productData.supplier_name}
+                                onChange={handleInputChange}
+                                placeholder='Ingrese nombre del Proveedor'
+                                className="border border-gray-400 p-2 w-full text-black placeholder:italic"
+                            />
+                        </label>
+                        <br />
+                        <label className='block mb-2'>
                             Unidad de Medida:
                             <select
                                 name="messure_unit"
@@ -110,6 +123,7 @@ const AddProduct = () => {
                                 onChange={handleInputChange}
                                 className="border border-gray-400 p-2 w-full text-black"
                             >
+                                <option value="">Seleccione una unidad</option>
                                 <option value="mts">Metros</option>
                                 <option value="kgs">Kilogramos</option>
                                 <option value="unidad">Unidad</option>
