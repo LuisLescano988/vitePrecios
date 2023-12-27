@@ -33,6 +33,8 @@ const DeleteProduct = () => {
     };
 
     const handleConfirmedDelete = () => {
+        // console.log(selectedProduct.id)
+        dispatch(deleteProduct(selectedProduct.id))
         setSelectedProduct(null);
         setSearch('');
     };

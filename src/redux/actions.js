@@ -10,6 +10,7 @@ import mockData from '../assets/MOCK_DATA.json'
 
 const URL = 'http://localhost:8000/api/all_products/'
 
+<<<<<<< HEAD
 export function postNewProduct(data) {
   return async function (dispatch) {
     try {
@@ -27,8 +28,22 @@ export function postNewProduct(data) {
       return newProduct
     } catch (error) {
       console.error(error);
+=======
+export function postNewProduct(payload) {
+    return function (dispatch) {
+        try {
+            axios.post(URL, payload)
+            .then((data) => {
+                return dispatch({
+                    type: POST_PRODUCT,
+                    payload: data
+                });
+            })
+        } catch (error){
+            console.error(error);
+        }
+>>>>>>> luigiDev
     }
-  }
 };
 
 export function getAllProducts() {
@@ -48,7 +63,7 @@ export function getAllProducts() {
 export function updateProduct(id, body) {
   return async function (dispatch) {
     try {
-      const productDetail = mockData.find((product) => product.id == id);
+      const productDetail = await axios.put(URL+id, body);
       if (productDetail) {
         return dispatch({
           type: UPDATE_PRODUCT,
@@ -68,8 +83,9 @@ export function deleteProduct(id) {
   return async function (dispatch) {
     try {
       console.log(id, 'id');
-      const productDetail = mockData.find((product) => product.id == id);
+      const productDetail = await axios.delete(URL+id);
       if (productDetail) {
+        console.log(productDetail,"IF")
         return dispatch({
           type: DELETE_PRODUCT,
           payload: productDetail,
