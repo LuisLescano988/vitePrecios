@@ -6,7 +6,6 @@ import {
   UPDATE_PRODUCT,
   DELETE_PRODUCT
 } from './actionTypes';
-import mockData from '../assets/MOCK_DATA.json'
 
 const URL = 'http://localhost:8000/api/all_products/'
 
@@ -78,20 +77,3 @@ export function deleteProduct(id) {
     }
   };
 };
-
-// export function newUser(payload) {
-//   return function (dispatch) {
-//     try {
-//       axios.post("/register", payload)
-//         .then((data) => {
-//           return dispatch({
-//             type: POST_NEW_USER,
-//             payload: data,
-//           });
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     };
-//   };
-// };
-
