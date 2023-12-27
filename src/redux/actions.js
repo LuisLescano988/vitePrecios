@@ -9,25 +9,6 @@ import {
 
 const URL = 'http://localhost:8000/api/all_products/'
 
-<<<<<<< HEAD
-export function postNewProduct(data) {
-  return async function (dispatch) {
-    try {
-      const newProduct = {
-        id: mockData.length + 1,
-        ...data
-      };
-      const updatedData = [...mockData, newProduct];
-
-      dispatch({
-        type: POST_PRODUCT,
-        payload: updatedData
-      });
-
-      return newProduct
-    } catch (error) {
-      console.error(error);
-=======
 export function postNewProduct(payload) {
     return function (dispatch) {
         try {
@@ -41,7 +22,6 @@ export function postNewProduct(payload) {
         } catch (error){
             console.error(error);
         }
->>>>>>> luigiDev
     }
 };
 
